@@ -17,9 +17,7 @@ code {
     monospace;
 }
 
-.container {
-  width: 1000px;
-}
+
 .genres {
   display: flex;
   flex-wrap: wrap;
@@ -35,4 +33,14 @@ ul {
   border: 1px solid #c5d6f5;
   padding: .3em;
 }
-
+.container-person {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.person-img {
+  border-radius: 20em;
+}
+.trending {
+  text-align: left;
+  margin-bottom: 1em;
+}

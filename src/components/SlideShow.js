@@ -14,6 +14,9 @@ const SlideShow = ({ pops }) => {
               src={poster + pop.backdrop_path}
               alt={pop.title}
             />
+            <Carousel.Caption style={{backgroundColor: 'transparent'}}>
+              {pop.title}
+            </Carousel.Caption>
             {/* <h3 style={{color: 'whitesmoke'}}>{pop.title}</h3> */}
           </Carousel.Item>
         ))}
