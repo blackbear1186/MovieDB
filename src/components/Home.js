@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import SlideShow from './SlideShow';
+import Genres from './Genres'
 
-const Home = () => {
+const Home = ({ pops, genres }) => {
+
   return (
-    <div className='text-left'>
-      Hi
+    <div style={{width: '1000px'}}className="container">
+     <SlideShow pops={pops}/>
+     <ul><Genres genres={genres} /></ul>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
