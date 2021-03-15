@@ -1,5 +1,4 @@
 import React from "react";
-import { FaStar, FaStarHalf, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 
 const StarRating = ({ value, color='yellow' }) => {
   const Star = () => {
@@ -111,16 +110,6 @@ const StarRating = ({ value, color='yellow' }) => {
   Star()
   return (
     <div>
-     {/* <FaStar color={value >= 1 ? 'red' :  <FaStarHalf  /> }/>
-     <FaStar color={value >= 2 ? 'red' :  <FaStarHalf  /> }/>
-     <FaStar color={value >= 3 ? 'red' :  <FaStarHalf  /> }/>
-     <FaStar color={value >= 4 ? 'red' :  <FaStarHalf /> } /> */}
-     {/* <FaStar color={value >= 5 ? 'red' : value >= 4.5 ? <FaStarHalfAlt color='red' /> : <FaRegStar />}/>
-     <FaStar color={value >= 6 ? 'red' : value >= 5.5 ? <FaStarHalfAlt color='red' /> : <FaRegStar />} />
-     <FaStar color={value >= 7 ? 'red' : value >= 6.5 ? <FaStarHalfAlt color='red' /> : <FaRegStar />} />
-     <FaStar color={value >= 8 ? 'red' : value >= 7.5 ? <FaStarHalfAlt color='red' /> : <FaRegStar />} />
-     <FaStar color={value >= 9 ? 'red' : value >= 8.5 ? <FaStarHalfAlt color='red' /> : <FaRegStar />} />
-     <FaStar color={value >= 10 ? 'red' : value >= 9.5 ? <FaStarHalfAlt color='red' /> : <FaRegStar />} /> */}
       <Star value={value} />
     </div>
   );

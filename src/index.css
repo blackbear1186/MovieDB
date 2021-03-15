@@ -34,7 +34,17 @@ ul {
   padding: .3em;
 }
 
-.trending {
+.heading {
   text-align: left;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  color: rgb(80, 2, 2);
+}
+.p-heading {
+  /* color: #64a4c9; */
+  color: rgb(80, 2, 2);
+  font-size: .9rem;
+}
+.rating {
   margin-bottom: 1em;
 }
