@@ -19,6 +19,7 @@ function App() {
   const [genres, setGenre] = useState([]);
   const [movieItems, setMovieItems] = useState([]);
   const [persons, setPersons] = useState([])
+  const [items, setItems] = useState([])
 
   useEffect(() => {
     const fetchPop = async () => {
@@ -31,8 +32,8 @@ function App() {
       const data = await axios(
         "https://api.themoviedb.org/3/movie/top_rated?&api_key=590deb377ecf6a1f707d345ad65b5e98"
       );
-      // setItems(data.data.results)
-      // console.log(data)
+      setItems(data.data.results)
+      console.log(data)
     };
     const fetchGenres = async () => {
       const data = await axios(
@@ -52,7 +53,7 @@ function App() {
         "https://api.themoviedb.org/3/trending/person/week?&api_key=590deb377ecf6a1f707d345ad65b5e98"
       )
       setPersons(data.data.results)
-      console.log(data.data.results)
+      // console.log(data.data.results)
     }
     fetchTrendingPersons();
     fetchDiscoverMovies();
@@ -64,7 +65,7 @@ function App() {
   return (
     <div className="App">
      
-            <Home pops={pops} genres={genres} persons={persons}/>
+            <Home pops={pops} genres={genres} persons={persons} items={items}/>
             {/* <MovieList movieItems={movieItems} /> */}
           
     </div>
