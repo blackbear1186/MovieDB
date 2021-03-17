@@ -8,7 +8,7 @@ const PopularPage = ({ pops }) => {
     <div className="container">
       <div className="row">
         {pops.map((pop) => (
-          <div className="col-md-3 mt-3">
+          <div key={pop.id} className="col-md-3 mt-3">
             <img
               className="img-fluid poster-card"
               src={poster + pop.poster_path}

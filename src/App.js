@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-import PopularMovies from "./components/PopularMovies";
 import Nav from "./components/Nav";
 import {
-  BrowserRouter,
   BrowserRouter as Switch,
   Route,
 } from "react-router-dom";
 import Home from "./components/pages/Home";
 import PopularPage from "./components/pages/PopularPage";
 import TopRatedPage from "./components/pages/TopRatedPage";
+
 
 function App() {
   const [pops, setPops] = useState([]);
@@ -46,7 +45,7 @@ function App() {
         "https://api.themoviedb.org/3/trending/person/week?&api_key=590deb377ecf6a1f707d345ad65b5e98"
       );
       setPersons(data.data.results);
-      // console.log(data.data.results)
+      console.log(data)
     };
 
     fetchTrendingPersons();
@@ -60,13 +59,13 @@ function App() {
       <Switch>
         <Nav />
 
-        <Route exact path="/" component={Home}>
-          <Home pops={pops} items={items}/>
+        <Route exact path="/">
+          <Home pops={pops} items={items} persons={persons}/>
         </Route>
-        <Route path="/popular" component={PopularPage}>
+        <Route path="/popular">
           <PopularPage pops={pops}/>
         </Route>
-        <Route path="/top-rated" component={TopRatedPage}>
+        <Route path="/top-rated">
           <TopRatedPage items={items}/>
         </Route>
       </Switch>

@@ -5,7 +5,9 @@ const Nav = () => {
   return (
     <nav className="navbar">
       <div className="container-fluid">
-        <h3 className="nav-heading">Movies</h3>
+        <h3 className="nav-heading">
+          <Link to='/'>Movies</Link>
+        </h3>
         <ul className='navbar-link'>
             <li>
               <Link to="/">Home</Link>

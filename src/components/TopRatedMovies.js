@@ -8,7 +8,7 @@ const TopRatedMovies = ({value, items}) => {
     <div className='container-fluid'>
       <div className='row'>
         {items.slice(0, 4).map(item => (
-          <div className='col-md-3 mt-3'>
+          <div key={item.id} className='col-md-3 mt-3'>
              <img
               className="img-fluid mb-3 poster-card"
               src={poster + item.poster_path}
