@@ -1,20 +1,26 @@
 import React from "react";
 import StarRating from "../Stars/StarRating";
+import AddFavorites from '../AddFavorites'
 
-const PopularPage = ({ pops }) => {
+const PopularPage = ({ pops, handleFavoriteClick }) => {
   const poster = "https://image.tmdb.org/t/p/original/";
 
   return (
     <div className="container">
       <div className="row">
         {pops.map((pop) => (
-          <div key={pop.id} className="col-md-3 mt-3">
+          <div className="col-md-3 mt-3">
+            <div className='image-container'>
             <img
               className="img-fluid poster-card"
               src={poster + pop.poster_path}
               alt={pop.title}
             ></img>
-            <p className="mt-2">IMDB Rating: {pop.vote_average}</p>
+            <div onClick={() => handleFavoriteClick(pop)}className='overlay'>
+              <AddFavorites />
+              </div>
+            </div>
+            <p className="link mt-2">IMDB Rating: {pop.vote_average}</p>
 
             <StarRating value={pop.vote_average} />
           </div>

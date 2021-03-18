@@ -15,7 +15,7 @@ const TrendingPersons = ({persons}) => {
               src={poster + person.profile_path}
               alt={person.name}
               ></img>
-              <p className='mt-3'><strong>{person.name}</strong></p>
+              <p className='link mt-3'><strong>{person.name}</strong></p>
           </div>
         ))}
       </div>

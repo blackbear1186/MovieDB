@@ -63,5 +63,31 @@ body {
 }
 .fav-text {
   color: white;
-  font-size: 1em;
+  font-size: .8rem;
+}
+.fav-heading {
+  color: rgb(59, 2, 2);
+}
+.heart {
+  color: red;
+}
+.trash {
+  color: white;
+}
+.nav-link, .nav-link:hover {
+  color: whitesmoke;
+}
+
+.link, .link:hover {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.heading-link {
+  color: rgb(59, 2, 2);
+
+}
+.heading-link:hover {
+  color:rgb(59, 2, 2);
+  text-decoration: none;
 }

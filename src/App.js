@@ -13,10 +13,20 @@ import TopRatedPage from "./components/pages/TopRatedPage";
 
 function App() {
   const [pops, setPops] = useState([]);
-  const [movieItems, setMovieItems] = useState([]);
   const [persons, setPersons] = useState([]);
   const [items, setItems] = useState([]);
+  const [favorites, setFavorites] = useState([])
 
+  const saveToLocalStorage = items => {
+    // convert object to json string
+    localStorage.setItem('react-movie-app', JSON.stringify(items))
+  }
+  const addFavoriteMovie = (movie) => {
+    const newFavorite = [...favorites, movie];
+    setFavorites(newFavorite)
+    saveToLocalStorage(newFavorite)
+  }
+ 
   useEffect(() => {
     const fetchPop = async () => {
       const data = await axios(
@@ -33,13 +43,6 @@ function App() {
       console.log(data);
     };
 
-    const fetchDiscoverMovies = async () => {
-      const data = await axios(
-        "https://api.themoviedb.org/3/discover/movie?&api_key=590deb377ecf6a1f707d345ad65b5e98"
-      );
-      setMovieItems(data.data.results);
-      console.log(data.data.results);
-    };
     const fetchTrendingPersons = async () => {
       const data = await axios(
         "https://api.themoviedb.org/3/trending/person/week?&api_key=590deb377ecf6a1f707d345ad65b5e98"
@@ -49,31 +52,32 @@ function App() {
     };
 
     fetchTrendingPersons();
-    fetchDiscoverMovies();
     fetchTopRated();
     fetchPop();
   }, []);
+
+  useEffect(() => {
+    // create movie favorite object to have movies appear when refreshed, convert json string to object
+    const movieFavoritesSaved = JSON.parse(
+      localStorage.getItem('react-movie-app')
+    )
+    setFavorites(movieFavoritesSaved)
+  }, [])
 
   return (
     <div className="App">
       <Switch>
         <Nav />
-
         <Route exact path="/">
           <Home pops={pops} items={items} persons={persons}/>
         </Route>
         <Route path="/popular">
-          <PopularPage pops={pops}/>
+          <PopularPage handleFavoriteClick={addFavoriteMovie} favorites={favorites} pops={pops}/>
         </Route>
         <Route path="/top-rated">
-          <TopRatedPage items={items}/>
+          <TopRatedPage handleFavoriteClick={addFavoriteMovie} favorites={favorites} items={items}/>
         </Route>
       </Switch>
-      {/* <PopularMovies pops={pops} /> */}
-      {/* <h3 className="heading">Trending persons of the week</h3>
-    <TrendingPersons persons={persons} />
-    <h3 className='heading'>Top Rated Movies</h3>
-    <TopRated items={items} /> */}
     </div>
   );
 }
